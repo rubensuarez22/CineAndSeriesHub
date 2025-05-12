@@ -1,0 +1,29 @@
+<resources>
+    <!-- Paleta principal -->
+    <color name="colorPrimary">#1F8EFA</color>            <!-- Azul cielo -->
+    <color name="colorAccent">#156CD3</color>     <!-- Azul más oscuro -->
+    <color name="colorBackground">#FFFFFF</color>          <!-- Texto/iconos sobre primary -->
+
+    <!-- Secundarios y acentos -->
+    <color name="sad">#34C759</color>          <!-- Verde brillante -->
+    <color name="colorSecondary">#2FA14A</color>   <!-- Verde más oscuro -->
+    <color name="colorOnSecondary">#FFFFFF</color>        <!-- Texto/iconos sobre secondary -->
+    <color name="colorOnPrimary">#FF9500</color>             <!-- Naranja suave -->
+
+    <!-- Fondos y superficies -->
+    <color name="colorSecondaryVariant">#FFFFFF</color>         <!-- Blanco puro -->
+    <color name="colorSurface">#F2F2F7</color>            <!-- Gris muy claro -->
+    <color name="colorOnBackground">#000000</color>       <!-- Texto sobre background -->
+    <color name="colorOnSurface">#000000</color>          <!-- Texto sobre surface -->
+
+    <!-- Errores y alertas -->
+    <color name="colorError">#B00020</color>              <!-- Rojo alerta -->
+    <color name="colorOnError">#FFFFFF</color>            <!-- Texto sobre error -->
+
+    <!-- Otros -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+
+<color name="app_blue">#1F8EFA</color>
+</resources>

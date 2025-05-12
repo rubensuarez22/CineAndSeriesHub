@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "128226924019",
+    "project_id": "proyecto-d0ba1",
+    "storage_bucket": "proyecto-d0ba1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128226924019:android:ef48724df24a1f7b21ae86",
+        "android_client_info": {
+          "package_name": "com.example.cineyhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbl8MjjeHSFT7gTE5z86AcJbYupsKvX_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
