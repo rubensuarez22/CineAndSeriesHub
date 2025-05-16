@@ -1,8 +1,11 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.gms.google-services")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -17,6 +20,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // —————— CARGA DE API KEY DESDE local.properties ——————
+        val localProps = Properties().apply {
+            load(rootProject.file("local.properties").inputStream())
+        }
+        val tmdbKey = localProps.getProperty("tmdb_api_key")
+            ?: throw GradleException("tmdb_api_key not found in local.properties")
+        buildConfigField("String", "TMDB_API_KEY", "\"$tmdbKey\"")
+
     }
 
     buildTypes {
@@ -37,10 +48,20 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
 dependencies {
+
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+
+    // Retrofit core
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    // Convertidor JSON con Gson
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    // (Opcional) Logging interceptor para depurar peticiones
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     implementation ("com.google.android.gms:play-services-base:18.6.0")
     implementation ("com.google.android.gms:play-services-code-scanner:16.1.0")

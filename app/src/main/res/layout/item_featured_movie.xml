@@ -1,102 +1,106 @@
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp">
+    android:layout_margin="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
+        <!-- 1. Imagen de fondo -->
         <ImageView
             android:id="@+id/ivFeaturedMovieImage"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="16:9"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+
+        <!-- 2. Capa semitransparente para contraste -->
         <View
             android:id="@+id/viewOverlay"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#66000000"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="@id/ivFeaturedMovieImage"
+            app:layout_constraintBottom_toBottomOf="@id/ivFeaturedMovieImage"
+            app:layout_constraintStart_toStartOf="@id/ivFeaturedMovieImage"
+            app:layout_constraintEnd_toEndOf="@id/ivFeaturedMovieImage"/>
 
-        <TextView
-            android:id="@+id/tvFeaturedMovieTitle"
+        <!-- 3. Contenido (título + estrellas), anclado abajo -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            tools:text="Dune: Parte Dos"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:maxLines="2"
-            android:ellipsize="end"
-            app:layout_constraintBottom_toTopOf="@id/llFeaturedMovieRating"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/ivFeaturedMovieImage"
+            app:layout_constraintStart_toStartOf="@id/ivFeaturedMovieImage"
+            app:layout_constraintEnd_toEndOf="@id/ivFeaturedMovieImage">
 
-        <LinearLayout
-            android:id="@+id/llFeaturedMovieRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center_vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            <TextView
+                android:id="@+id/tvFeaturedMovieTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Título de ejemplo"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end" />
 
-            <ImageView
-                android:id="@+id/star1_featured"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:src="@drawable/ic_star_filled_base"
-                app:tint="#FFC107"/> <ImageView
-            android:id="@+id/star2_featured"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="2dp"
-            android:src="@drawable/ic_star_filled_base"
-            app:tint="#FFC107"/>
-            <ImageView
-                android:id="@+id/star3_featured"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="2dp"
-                android:src="@drawable/ic_star_filled_base"
-                app:tint="#FFC107"/>
-            <ImageView
-                android:id="@+id/star4_featured"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="2dp"
-                android:src="@drawable/ic_star_filled_base"
-                app:tint="#FFC107"/>
-            <ImageView
-                android:id="@+id/star5_featured"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="2dp"
-                android:src="@drawable/ic_star_border_base" app:tint="#FFC107"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:id="@+id/star1_featured"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    app:tint="@android:color/white"
+                    android:src="@drawable/ic_star_border_base"/>
+                <ImageView
+                    android:id="@+id/star2_featured"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="4dp"
+                    app:tint="@android:color/white"
+                    android:src="@drawable/ic_star_border_base"/>
+                <ImageView
+                    android:id="@+id/star3_featured"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="4dp"
+                    app:tint="@android:color/white"
+                    android:src="@drawable/ic_star_border_base"/>
+                <ImageView
+                    android:id="@+id/star4_featured"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="4dp"
+                    app:tint="@android:color/white"
+                    android:src="@drawable/ic_star_border_base"/>
+                <ImageView
+                    android:id="@+id/star5_featured"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="4dp"
+                    app:tint="@android:color/white"
+                    android:src="@drawable/ic_star_border_base"/>
+
+                <!-- ...repítelas según rating... -->
+
+            </LinearLayout>
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

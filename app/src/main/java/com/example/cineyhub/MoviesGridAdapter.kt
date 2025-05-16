@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 class MoviesGridAdapter(
-    private val items: List<MovieItem>,
+    private var items: List<MovieItem>,
     private val onItemClick: (MovieItem) -> Unit
 ) : RecyclerView.Adapter<MoviesGridAdapter.GridViewHolder>() {
 
@@ -17,6 +17,10 @@ class MoviesGridAdapter(
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_movie_card, parent, false)
         return GridViewHolder(view)
+    }
+    fun updateItems(newItems: List<MovieItem>) {
+        items = newItems
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: GridViewHolder, position: Int) {

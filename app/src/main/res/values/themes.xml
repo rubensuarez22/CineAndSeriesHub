@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.CineYHub" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.CineyHub" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+</style>
+
+
 </resources>
